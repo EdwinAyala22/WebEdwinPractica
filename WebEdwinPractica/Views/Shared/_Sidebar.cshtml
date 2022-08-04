@@ -40,18 +40,20 @@
                 @*}*@
 
                 @*@if (User.Identity.IsAuthenticated)
-                {*@
-                    @*//if (User.IsInRole("Admin"))
+                    {*@
+                @*//if (User.IsInRole("Admin"))
                     //{*@
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="far fa-folder"></i>
-                            <p>
-                                Control Adiministrativo
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="far fa-folder"></i>
+                        <p>
+                            Control Adiministrativo
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @if (User.IsInRole("SuperUsuario"))
+                        {
                             <li class="nav-item">
                                 <a href="~/Identity/Account/Manage/Index" class="nav-link active">
 
@@ -60,6 +62,11 @@
                                 </a>
                             </li>
 
+                        }
+
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
+                        {
                             <li class="nav-item">
                                 <a href="~/Role/Create" class="nav-link active">
                                     <img src="~/img/asignarRoles.png" width="30">
@@ -67,22 +74,25 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="~/Role/AddUserToRole" class="nav-link active">
-                                    <img src="~/img/CrearRoles.png" width="30">
-                                    <p>Asignar Roles</p>
-                                </a>
-                            </li>
+                        }
 
-                            <li class="nav-item">
-                                <a href="~/Role/Index" class="nav-link active">
-                                    <img src="~/img/usuarios.png" width="30">
-                                    <p>Usuarios</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @*}*@
+
+                        <li class="nav-item">
+                            <a href="~/Role/AddUserToRole" class="nav-link active">
+                                <img src="~/img/CrearRoles.png" width="30">
+                                <p>Asignar Roles</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Role/Index" class="nav-link active">
+                                <img src="~/img/usuarios.png" width="30">
+                                <p>Usuarios</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*}*@
                 @*}*@
 
                 @*@if (User.Identity.IsAuthenticated)
