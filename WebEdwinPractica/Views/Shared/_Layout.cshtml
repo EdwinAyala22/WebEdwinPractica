@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebEdwinPractica</title>
+
+    <partial name="_Estilos" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+    <div class="wrapper" style="top: 5px;">
+        <partial name="_Navbar" />
+        <partial name="_Sidebar" />
+
+        @RenderBody();
+
+        <partial name="_Footer" />
+        <partial name="_Script" />
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model RegistroUsuarios
+
+@{
+    ViewData["Title"] = "Registro de usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="wrapper">
+
+    <div class="content-wrapper d-flex justify-content-center align-items-center">
+        <div class="card" style="width: 40rem;">
+            <h1 class="text-center m-auto p-4">Registro de Usuarios</h1>
+            @*El formulario, Cuentas = Nombre del controlador, Registro = Nombre del método, método = post*@
+            <div class="container w-75 m-auto">
+                <form asp-controller="Cuentas" asp-action="Registro" method="post" >
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="col-md-12"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Nombre" class="form-control" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Documento" class="col-md-12"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Documento" class="form-control" />
+                            <span asp-validation-for="Documento" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" class="col-md-12"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password" class="col-md-12"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ConfirPassword" class="col-md-12"></label>
+                        <div class="col-md-12">
+                            <input asp-for="ConfirPassword" class="form-control" />
+                            <span asp-validation-for="ConfirPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-success">Registrarse</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@*Titulo*@
+
+
+
+@*Utilizamos un script para llamar una vista parcial que válida al lado del cliente en JavaScript*@
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
