@@ -4,94 +4,98 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="text-center">DETALLES</h1>
+<div class="content-wrapper">
+    <h1 class="text-center">DETALLES</h1>
 
-<div class="container">
-    @*<h4>Registros</h4>*@
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
-        <dd class="col-sm-10">
-            @if (Model.Imagen != null)
-            {
-                var base64 = Convert.ToBase64String(Model.Imagen);
-                var imgScr = String.Format("data:image/jpg;base64,{0}", base64);<img id="mostrarfoto" src='@imgScr' style="max-width: 150px; max-height: 150px;" class="img-circle elevation-2" />
-                <input type="hidden" asp-for="Imagen" />
-            }
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Documento)
+    <div class="container">
+        @*<h4>Registros</h4>*@
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Imagen)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Imagen != null)
+                {
+                    var base64 = Convert.ToBase64String(Model.Imagen);
+                    var imgScr = String.Format("data:image/jpg;base64,{0}", base64);<img id="mostrarfoto" src='@imgScr' style="max-width: 150px; max-height: 150px;" class="img-circle elevation-2" />
+                    <input type="hidden" asp-for="Imagen" />
+                }
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Documento)
 
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Documento)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apellidos)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaNac)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FechaNac)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Celular)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Celular)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Genero)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Genero)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Deporte)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Deporte)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Trabaja)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Trabaja)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Sueldo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Sueldo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
-    <div class="d-flex justify-content-center align-items-center">
-        <a asp-action="Edit" asp-route-id="@Model.IdRegistro" class="btn btn-success m-1">Editar</a>
-        <a asp-action="Index" class="btn btn-dark m-1">Volver</a>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Documento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Apellidos)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FechaNac)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaNac)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Direccion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Direccion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Celular)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Celular)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Genero)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Genero)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Deporte)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Deporte)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Trabaja)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Trabaja)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Sueldo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+        </dl>
+        <div class="d-flex justify-content-center align-items-center">
+            <a asp-action="Edit" asp-route-id="@Model.IdRegistro" class="btn btn-success m-1">Editar</a>
+            <a asp-action="Index" class="btn btn-dark m-1">Volver</a>
+        </div>
+
     </div>
-
 </div>
+
+

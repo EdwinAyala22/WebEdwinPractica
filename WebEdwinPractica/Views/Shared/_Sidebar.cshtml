@@ -76,21 +76,25 @@
 
                         }
 
-
-                        <li class="nav-item">
-                            <a href="~/Role/AddUserToRole" class="nav-link active">
-                                <img src="~/img/CrearRoles.png" width="30">
-                                <p>Asignar Roles</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="~/Role/Index" class="nav-link active">
-                                <img src="~/img/usuarios.png" width="30">
-                                <p>Usuarios</p>
-                            </a>
-                        </li>
-                    </ul>
+                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
+                        {
+                            <li class="nav-item">
+                                <a href="~/Role/AddUserToRole" class="nav-link active">
+                                    <img src="~/img/CrearRoles.png" width="30">
+                                    <p>Asignar Roles</p>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
+                        {
+                            <li class="nav-item">
+                                <a href="~/Role/Index" class="nav-link active">
+                                    <img src="~/img/usuarios.png" width="30">
+                                    <p>Usuarios</p>
+                                </a>
+                            </li>
+                        }
+                        </ul>
                 </li>
                 @*}*@
                 @*}*@

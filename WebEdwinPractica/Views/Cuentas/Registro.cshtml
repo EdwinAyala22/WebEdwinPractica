@@ -13,17 +13,24 @@
 <div class="wrapper">
 
     <div class="content-wrapper d-flex justify-content-center align-items-center">
-        <div class="card" style="width: 40rem;">
+        <div class="card shadow rounded" style="width: 40rem;">
             <h1 class="text-center m-auto p-4">Registro de Usuarios</h1>
             @*El formulario, Cuentas = Nombre del controlador, Registro = Nombre del método, método = post*@
             <div class="container w-75 m-auto">
-                <form asp-controller="Cuentas" asp-action="Registro" method="post" >
+                <form asp-controller="Cuentas" asp-action="Registro" method="post">
                     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
                     <div class="form-group">
                         <label asp-for="Nombre" class="col-md-12"></label>
                         <div class="col-md-12">
-                            <input asp-for="Nombre" class="form-control" />
+                            <div class="input-group">
+                                <input asp-for="Nombre" class="form-control" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="bi bi-person-square"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
                     </div>
@@ -31,7 +38,14 @@
                     <div class="form-group">
                         <label asp-for="Documento" class="col-md-12"></label>
                         <div class="col-md-12">
-                            <input asp-for="Documento" class="form-control" />
+                            <div class="input-group">
+                                <input asp-for="Documento" class="form-control" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="bi bi-postcard"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <span asp-validation-for="Documento" class="text-danger"></span>
                         </div>
                     </div>
@@ -39,7 +53,17 @@
                     <div class="form-group">
                         <label asp-for="Email" class="col-md-12"></label>
                         <div class="col-md-12">
-                            <input asp-for="Email" class="form-control" />
+
+                            <div class="input-group">
+                                <input asp-for="Email" class="form-control" />
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="bi bi-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
@@ -47,7 +71,14 @@
                     <div class="form-group">
                         <label asp-for="Password" class="col-md-12"></label>
                         <div class="col-md-12">
-                            <input asp-for="Password" class="form-control" />
+                            <div class="input-group">
+                                <input asp-for="Password" class="form-control" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="bi bi-shield-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                     </div>
@@ -55,7 +86,14 @@
                     <div class="form-group">
                         <label asp-for="ConfirPassword" class="col-md-12"></label>
                         <div class="col-md-12">
-                            <input asp-for="ConfirPassword" class="form-control" />
+                            <div class="input-group">
+                                <input asp-for="ConfirPassword" class="form-control" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="bi bi-shield-check"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <span asp-validation-for="ConfirPassword" class="text-danger"></span>
                         </div>
                     </div>
