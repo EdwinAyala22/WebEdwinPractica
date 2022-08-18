@@ -258,5 +258,26 @@ namespace WebEdwinPractica.Controllers
             // Muestra el reporte en la pantalla
             //return File(pdf, mimetype);
         }
+
+        //public IActionResult DescargarExcel()
+        //{
+
+        //    string renderFormat = "xlsx";
+        //    string mimetype = "application/vnd.ms-excel";
+        //    using var report = new LocalReport();
+
+        //    report.ReportPath = $"{this._webHostEnvironment.WebRootPath}\\Reportes\\ReportGeneral.rdlc";
+        //    DataSet1 ds = new DataSet1();
+        //    DataSet.DataSet1TableAdapters.RegistrosTableAdapter sda = new DataSet.DataSet1TableAdapters.RegistrosTableAdapter();
+        //    sda.Fill(ds.Registros);
+        //    ReportDataSource rds = new ReportDataSource("DataSetRegistros", (object)ds.Registros);
+        //    report.DataSources.Add(rds);
+        //    report.Refresh();
+
+        //    var excel = report.Render(renderFormat);
+        //    return File(excel, mimetype, "report." + "xlsx");
+
+        //}
+
     }
 }
