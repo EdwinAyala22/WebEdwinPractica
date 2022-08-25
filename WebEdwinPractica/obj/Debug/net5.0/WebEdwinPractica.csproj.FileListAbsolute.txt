@@ -214,3 +214,7 @@ C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Areas\Id
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
+C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Views\Registros\Disableds.cshtml.g.cs
+C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\ClosedXML.dll
+C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\ExcelNumberFormat.dll

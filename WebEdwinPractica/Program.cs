@@ -22,5 +22,7 @@ namespace WebEdwinPractica
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        static public string Conexion = "Data Source=(Local)\\SQLEXPRESS;Initial Catalog=Prueba;Persist Security Info=True;User ID=PruebaMVC;Password=Prueba123*";
     }
 }

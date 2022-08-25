@@ -13,10 +13,24 @@ using WebEdwinPractica.Data;
 using WebEdwinPractica.DataSet;
 using WebEdwinPractica.Models;
 
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using ClosedXML.Excel;
+
+
 namespace WebEdwinPractica.Controllers
 {
     public class RegistrosController : Controller
     {
+
+        //private readonly string cadenaSQL;
+
+        //public RegistrosController(IConfiguration config)
+        //{
+        //    cadenaSQL = config.GetConnectionString("DefaultConnection");
+        //}
+
         private byte[] GetByteArrayFromImage(IFormFile file)
         {
             using (var target = new MemoryStream())
@@ -36,6 +50,11 @@ namespace WebEdwinPractica.Controllers
 
         // GET: Registros
         public async Task<IActionResult> Index()
+        {
+            return View(await _context.Registros.ToListAsync());
+        }
+
+        public async Task<IActionResult> Disableds()
         {
             return View(await _context.Registros.ToListAsync());
         }
@@ -109,6 +128,8 @@ namespace WebEdwinPractica.Controllers
             }
             return View(registros);
         }
+
+
 
         // POST: Registros/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -259,25 +280,7 @@ namespace WebEdwinPractica.Controllers
             //return File(pdf, mimetype);
         }
 
-        //public IActionResult DescargarExcel()
-        //{
-
-        //    string renderFormat = "xlsx";
-        //    string mimetype = "application/vnd.ms-excel";
-        //    using var report = new LocalReport();
-
-        //    report.ReportPath = $"{this._webHostEnvironment.WebRootPath}\\Reportes\\ReportGeneral.rdlc";
-        //    DataSet1 ds = new DataSet1();
-        //    DataSet.DataSet1TableAdapters.RegistrosTableAdapter sda = new DataSet.DataSet1TableAdapters.RegistrosTableAdapter();
-        //    sda.Fill(ds.Registros);
-        //    ReportDataSource rds = new ReportDataSource("DataSetRegistros", (object)ds.Registros);
-        //    report.DataSources.Add(rds);
-        //    report.Refresh();
-
-        //    var excel = report.Render(renderFormat);
-        //    return File(excel, mimetype, "report." + "xlsx");
-
-        //}
+        
 
     }
 }
