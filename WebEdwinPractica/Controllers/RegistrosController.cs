@@ -59,6 +59,11 @@ namespace WebEdwinPractica.Controllers
             return View(await _context.Registros.ToListAsync());
         }
 
+        public async Task<IActionResult> Excel()
+        {
+            return View(await _context.Registros.ToListAsync());
+        }
+
         // GET: Registros/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -88,7 +93,7 @@ namespace WebEdwinPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado")] Registros registros, IFormFile ImageFile)
+        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado, FechaRegistro")] Registros registros, IFormFile ImageFile)
         {
             //if (ModelState.IsValid)
             if (ImageFile != null && ImageFile.Length > 0)
@@ -136,7 +141,7 @@ namespace WebEdwinPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado")] Registros registros, IFormFile ImageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaRegistro")] Registros registros, IFormFile ImageFile)
         {
             if (id != registros.IdRegistro)
             {

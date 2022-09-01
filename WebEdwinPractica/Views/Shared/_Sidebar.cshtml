@@ -2,10 +2,26 @@
 @*<aside class="main-sidebar sidebar-dark-orange elevation-4">*@
 <aside class="main-sidebar sidebar-light-cyan elevation-3">
     <!-- Brand Logo -->
-    <a href="~/Home/Index" class="brand-link">
+
+    @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
+    {
+        <a href="~/Home/Index" class="brand-link">
+            <img src="~/img/EdwinAyala.jpg" alt="Edwin Sebastian Ayala" class="brand-image img-circle elevation-3">
+            <span class="brand-text font-weight-light">Administrador</span>
+        </a>
+
+    }
+    else
+    {
+        <a href="~/Home/Index" class="brand-link">
+            <img src="~/img/fotoPre.png" alt="Edwin Sebastian Ayala" class="brand-image img-circle elevation-3">
+            <span class="brand-text font-weight-light">Usuario</span>
+        </a>
+    }
+    @*<a href="~/Home/Index" class="brand-link">
         <img src="~/img/EdwinAyala.jpg" alt="Edwin Sebastian Ayala" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">Administrador</span>
-    </a>
+    </a>*@
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -26,23 +42,30 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
 
-                        <li class="nav-item">
-                            <a href="~/Registros/Index" class="nav-link active">
-                                <img src="~/img/registro.png" width="30">
-                                <p>Registro</p>
-                            </a>
-                        </li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
+                    {
 
-                        <li class="nav-item">
-                            <a href="~/Registros/Disableds" class="nav-link active">
-                                <img width="30" src="~/Img/registro.png">
-                                <p>Registros inactivos</p>
-                            </a>
-                        </li>
 
-                    </ul>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="~/Registros/Index" class="nav-link active">
+                                    <img src="~/img/registro.png" width="30">
+                                    <p>Registro</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="~/Registros/Disableds" class="nav-link active">
+                                    <img width="30" src="~/Img/registro.png">
+                                    <p>Registros inactivos</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    }
                 </li>
                 @*}*@
                 @*}*@
@@ -60,7 +83,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @if (User.IsInRole("SuperUsuario"))
+                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
                         {
                             <li class="nav-item">
                                 <a href="~/Identity/Account/Manage/Index" class="nav-link active">
@@ -70,11 +93,6 @@
                                 </a>
                             </li>
 
-                        }
-
-
-                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
-                        {
                             <li class="nav-item">
                                 <a href="~/Role/Create" class="nav-link active">
                                     <img src="~/img/asignarRoles.png" width="30">
@@ -82,19 +100,13 @@
                                 </a>
                             </li>
 
-                        }
-
-                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
-                        {
                             <li class="nav-item">
                                 <a href="~/Role/AddUserToRole" class="nav-link active">
                                     <img src="~/img/CrearRoles.png" width="30">
                                     <p>Asignar Roles</p>
                                 </a>
                             </li>
-                        }
-                        @if (User.IsInRole("Admin") || User.IsInRole("SuperUsuario"))
-                        {
+
                             <li class="nav-item">
                                 <a href="~/Role/Index" class="nav-link active">
                                     <img src="~/img/usuarios.png" width="30">
@@ -102,7 +114,7 @@
                                 </a>
                             </li>
                         }
-                        </ul>
+                    </ul>
                 </li>
                 @*}*@
                 @*}*@
@@ -141,7 +153,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="~/Home/ExportarExcel" class="nav-link active">
+                            <a data-toggle="modal" data-target="#reporte-excel" class="nav-link active">
                                 <img src="~/img/excelD.png" width="30">
                                 <p>Reportes Excel</p>
                             </a>
@@ -153,6 +165,52 @@
 
             </ul>
         </nav>
+
+        @*<a data-toggle="modal" data-target="#delete-conformation" class="btn btn-danger m-1"><span class="bi bi-trash3-fill"></span></a>*@
+
+        <div class="modal fade " id="reporte-excel" tabindex="-1" role="dialog" aria-labelledby="confirmdelete" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title text-white font-weight-bold" id="confirmdelete">Reporte de Usuarios</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+
+
+                        <form asp-action="ExportarExcel" asp-controller="Home" method="post">
+
+                            <div class="row justify-content-center align-items-end">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha Inicio:</label>
+                                        <input class="form-control" type="date" name="fechaInicial" value="" required />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha Fin:</label>
+                                        <input class="form-control" type="date" name="fechaFinal" value="" required />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr />
+                            <div class="row justify-content-center align-items-end">
+                                <div class="col-md-12">
+                                    <div class="form-group text-center mb-0">
+                                        <button class="btn btn-success" type="submit">Exportar Excel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

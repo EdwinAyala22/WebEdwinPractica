@@ -1,0 +1,47 @@
+﻿@{ 
+    ViewData["Title"] = "Reporte Excel";
+}
+
+<div class="content-wrapper">
+    
+    <div class="container w-25">
+        <h2 class="text-center">
+            Reporte de usuarios
+        </h2>
+
+        <hr />
+        <div class="card p-5 shadow">
+            <form asp-action="ExportarExcel" asp-controller="Home" method="post">
+
+                <div class="row justify-content-center align-items-end">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Fecha Inicio</label>
+                            <input class="form-control" type="date" name="fechaInicial" value="" required />
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Fecha Fin</label>
+                            <input class="form-control" type="date" name="fechaFinal" value="" required />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center align-items-end">
+                    <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <button class="btn btn-success" type="submit">Exportar Excel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        
+    </div>
+
+    
+</div>
+

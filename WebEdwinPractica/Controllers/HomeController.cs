@@ -46,8 +46,11 @@ namespace WebEdwinPractica.Controllers
         }
 
 
-        public IActionResult ExportarExcel()
+        public IActionResult ExportarExcel( DateTime fechaInicial , DateTime fechaFinal)
         {
+            string fe1 = fechaInicial.ToShortDateString();
+            string fe2 = fechaFinal.ToShortDateString();
+
             DataTable tablaregistros = new DataTable();
 
             using (var conexion = new SqlConnection(cadenaSql))
@@ -55,8 +58,10 @@ namespace WebEdwinPractica.Controllers
                 conexion.Open();
                 using (var adapter = new SqlDataAdapter())
                 {
-                    adapter.SelectCommand = new SqlCommand("sp_reporte_registros2", conexion);
+                    adapter.SelectCommand = new SqlCommand("sp_reporte_registros3", conexion);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.SelectCommand.Parameters.AddWithValue("@FechaInicio", fe1);
+                    adapter.SelectCommand.Parameters.AddWithValue("@FechaFin", fe2);
                     adapter.Fill(tablaregistros);
                 }
 
