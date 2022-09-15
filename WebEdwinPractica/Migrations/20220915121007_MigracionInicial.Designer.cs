@@ -10,7 +10,7 @@ using WebEdwinPractica.Data;
 namespace WebEdwinPractica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220901122620_MigracionInicial")]
+    [Migration("20220915121007_MigracionInicial")]
     partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -253,6 +253,9 @@ namespace WebEdwinPractica.Migrations
                     b.Property<string>("Documento")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
 
                     b.Property<string>("Estado")
                         .IsRequired()

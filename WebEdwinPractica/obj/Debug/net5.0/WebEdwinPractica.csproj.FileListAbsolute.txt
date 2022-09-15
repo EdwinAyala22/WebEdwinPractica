@@ -219,3 +219,4 @@ C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\ClosedXML.dll
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\bin\Debug\net5.0\ExcelNumberFormat.dll
 C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Views\Registros\Excel.cshtml.g.cs
+C:\Edwin_Ayala\WebEdwinPractica\WebEdwinPractica\obj\Debug\net5.0\Razor\Views\Registros\Graficas.cshtml.g.cs

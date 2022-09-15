@@ -111,5 +111,12 @@ namespace WebEdwinPractica.Models
         [Column(TypeName = "DateTime")]
         public DateTime FechaRegistro { get; set; }
 
+        [DisplayName("Edad")]
+        //[StringLength(15)]
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Dato requerido")]
+        [Column(TypeName = "int")]
+        public int Edad { get; set; }
+
     }
 }

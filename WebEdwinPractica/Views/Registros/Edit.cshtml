@@ -76,11 +76,18 @@
                         <span asp-validation-for="FechaNac" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="Direccion" class="control-label"></label>
                         <input asp-for="Direccion" class="form-control" />
                         <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Edad" class="control-label"></label>
+                        <input type="number" asp-for="Edad" class="form-control" />
+                        <span asp-validation-for="Edad" class="text-danger"></span>
                     </div>
                 </div>
             </div>

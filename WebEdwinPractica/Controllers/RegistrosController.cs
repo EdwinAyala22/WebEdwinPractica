@@ -17,7 +17,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using ClosedXML.Excel;
-
+using System.Data.Common;
 
 namespace WebEdwinPractica.Controllers
 {
@@ -93,7 +93,7 @@ namespace WebEdwinPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado, FechaRegistro")] Registros registros, IFormFile ImageFile)
+        public async Task<IActionResult> Create([Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaRegistro,Edad")] Registros registros, IFormFile ImageFile)
         {
             //if (ModelState.IsValid)
             if (ImageFile != null && ImageFile.Length > 0)
@@ -141,7 +141,7 @@ namespace WebEdwinPractica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaRegistro")] Registros registros, IFormFile ImageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRegistro,Imagen,Documento,Nombre,Apellidos,FechaNac,Direccion,Celular,Genero,Deporte,Trabaja,Sueldo,Estado,FechaRegistro,Edad")] Registros registros, IFormFile ImageFile)
         {
             if (id != registros.IdRegistro)
             {
@@ -285,7 +285,45 @@ namespace WebEdwinPractica.Controllers
             //return File(pdf, mimetype);
         }
 
-        
+        public IActionResult Graficas()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult DatosPersonas()
+        {
+            List<Registros> objLista = new List<Registros>();
+            var conn = _context.Database.GetDbConnection();
+            try
+            {
+                using (var command = conn.CreateCommand())
+                {
+                    conn.Open();
+                    string query1 = "Select Nombre, Edad From Registros";
+                    command.CommandText = query1;
+                    DbDataReader reader1 = command.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        objLista.Add(new Registros()
+                        {
+                            Nombre = reader1["Nombre"].ToString(),
+                            Edad = int.Parse(reader1["Edad"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+            }
+            catch(Exception e1)
+            {
+                string error = e1.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return Json(objLista);
+        }
 
     }
 }
