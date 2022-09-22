@@ -118,7 +118,7 @@ namespace WebEdwinPractica.Controllers
         public async Task<IActionResult> Registro()
         {
             RegistroUsuarios RuVista = new RegistroUsuarios();
-            return View(RuVista);
+            return View( RuVista);
         }
 
     }
