@@ -39,7 +39,7 @@
                     <div class="col-md-4">
                         @*<div class="form-group">*@
                         <label asp-for="FechaRegistro" class="control-label"></label>
-                        <input type="date" asp-for="FechaRegistro" class="form-control" disabled />
+                        <input type="date" asp-for="FechaRegistro" class="form-control" />
                         <span asp-validation-for="FechaRegistro" class="text-danger"></span>
                         @*</div>*@
                     </div>
@@ -86,7 +86,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label asp-for="Edad" class="control-label"></label>
-                        <input type="number" asp-for="Edad" class="form-control" />
+                        <input asp-for="Edad" class="form-control" />
                         <span asp-validation-for="Edad" class="text-danger"></span>
                     </div>
                 </div>
